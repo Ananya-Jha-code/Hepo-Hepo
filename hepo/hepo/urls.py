@@ -18,7 +18,7 @@ from django.urls import path
 from home.views import home_view
 from signup.views import signup_view
 from login.views import login_view, logoutUser
-
+from chatmenu.views import chat_menu, room, checkview
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +26,8 @@ urlpatterns = [
     path('signup/', signup_view),
     path('login/', login_view, name='login'),
     path('logout/', logoutUser, name='logout'),
+    path('login/chatmenu/', chat_menu, name='chatmenu'),
+    path('login/chatmenu/<str:room>/', room, name='room'),
+    path('login/chatmenu/checkview', checkview, name='checkview'),
 
 ]

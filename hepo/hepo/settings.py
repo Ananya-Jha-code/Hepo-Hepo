@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'home',
     'signup',
     'login',
-
+    'chatmenu',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -127,6 +128,15 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+
+ASGI_APPLICATION = "hepo.routing.application"
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
