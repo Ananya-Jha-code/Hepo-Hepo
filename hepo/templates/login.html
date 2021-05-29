@@ -1,0 +1,37 @@
+    <!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>LogIn</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}">
+</head>
+
+<body>
+    <div class="login-box">
+        <h1>LogIn</h1>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="textbox">
+            <i class="fas fa-user"></i>
+            <input type="text" name="username" placeholder="Username...">
+            <br/>
+            <br/>
+        </div>
+        <div class="textbox">
+            <i class="fas fa-lock"></i>
+            <input type="password" name="password" placeholder="Password">
+        </div>
+        <div>
+            <input type="submit" value="Login">
+            <br/>
+            <br/>
+        </div>
+        {% for message in messages %}
+            <p id="messages">{{message}}</p>
+        {% endfor %}
+        <p>Don't have an account <a href="/signup">SignUp</a> </p>
+    </form>
+    </div>
+</body>
+</html>
