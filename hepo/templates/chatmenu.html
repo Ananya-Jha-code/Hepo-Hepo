@@ -1,0 +1,46 @@
+<h1> chat menu</h1>
+<p> hello {{request.user}}</p>
+<span><a href="{% url 'logout' %}">Logout</a></span>
+<br/>
+<br/>
+<h3>Medicos</h3>
+<ul>
+    {% for room in rooms %}
+        {% if "medico" in room.name %}
+        <li><button><a href="/login/chatmenu/{{ room.name }}" > {{ room.name }} </a> </button></li>
+        {% endif %}
+    {% endfor %}
+
+</ul>
+
+<form id="post_from" method="POST" action="checkview">
+    {% csrf_token %}
+
+    <header>create a room</header>
+
+    <header>Type the name of the room you want to create</header>
+    <input type="text" name="room_name" id="room_name" />
+    <br/>
+    <br/>
+    {% for message in messages %}
+        <p>{{message}}</p>
+    {% endfor %}
+    <input type="submit" value="Enter Room" >
+</form>
+
+<h2>Existing Rooms</h2>
+
+<ul>
+    {% for room in rooms %}
+        {% if "b" in room.name %}
+        <li><button><a href="/login/chatmenu/{{ room.name }}" > {{ room.name }} </a> </button></li>
+        {% endif %}
+    {% endfor %}
+
+</ul>
+
+<h4>LEADER BOARD</h4>
+{% for v,c in val.items %}
+    <ul>{{v}} : {{c}}</ul>
+{% endfor %}
+
