@@ -1,0 +1,110 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #031321;
+    font-family: consolas;
+}
+
+.signup
+{
+    float: left;
+    font-size: 20px;
+    color: white;
+    margin-bottom: auto;
+    padding: 10px;
+    position: center;
+    overflow: hidden;
+}
+
+.signup h1
+{
+    float: left;
+    font-size: 40px;
+    position: relative;
+    padding: 13px 0;
+
+}
+
+.signup h1::after
+{
+    content: '';
+    height: 5px;
+    width: 0;
+    background : #e58ab2;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.signup h1:hover::after
+{
+    width: 100%;
+}
+
+.username
+{
+    width: 210px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    float: left;
+    font-size: 24px;
+    margin-bottom: 0;
+    padding: 0;
+
+}
+
+
+.email
+{
+    width: 100%;
+    padding: 10px 0;
+    position: centre;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    margin: 50px auto;
+}
+.pass
+{
+    width: 100%;
+    position: center;
+    padding 10px 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    margin: 50px auto;
+}
+.pass-conf
+{
+    width: 100%;
+    position: center;
+    padding: 10ppx 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    margin: 50px auto;
+}
+
+.submit
+{
+    width: 100%;
+    position: absolute;
+    padding: 10px 0;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%,-50%);
+    color: white;
+    margin: 50px auto;
+}

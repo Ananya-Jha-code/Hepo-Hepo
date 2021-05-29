@@ -1,28 +1,42 @@
-<h3> SignUp PAGE </h3>
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>SignUp</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/signup.css' %}">
+</head>
 
+<body>
 
-<form method="POST" action="">
-    {% csrf_token %}
-    {{form.username.label}}
-    {{form.username}}
-    <br/>
-    <br/>
-    {{form.email.label}}
-    {{form.email}}
-    <br/>
-    <br/>
-    {{form.password1.label}}
-    {{form.password1}}
-    <br/>
-    <br/>
-    {{form.password2.label}}
-    {{form.password2}}
-    <br/>
-    <br/>
-    <input type="submit" name="Create User">
-    <br/>
-    <br/>
-    {{ form.errors }}
-    <p>Already have an account? <a href="/login">Login</a> </p>
-</form>
+    <form method="POST" action="">
+        <div class="username">
+            <div class="signup">
+                <h1>SignUp</h1>
 
+            {% csrf_token %}
+            {{form.username}}
+            <br/>
+            <br/>
+
+            {{form.email}}
+            <br/>
+            <br/>
+            {{form.password1}}
+            <br/>
+            <br/>
+            {{form.password2}}
+            <br/>
+            <br/>
+            <div class="button">
+                <input type="submit" name="Create User">
+                <br/>
+                <br/>
+            </div>
+            {{ form.errors }}
+            <p>Already have an account? <a href="/login">Login</a> </p>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>
