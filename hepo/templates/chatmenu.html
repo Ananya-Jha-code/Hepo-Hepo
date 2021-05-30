@@ -1,4 +1,17 @@
-<h1> chat menu</h1>
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/chatmenu.css' %}">
+
+</head>
+
+<!--<h1> chat menu</h1>
 <p> hello {{request.user}}</p>
 <span><a href="{% url 'logout' %}">Logout</a></span>
 <br/>
@@ -42,5 +55,207 @@
 <h4>LEADER BOARD</h4>
 {% for v,c in val.items %}
     <ul>{{v}} : {{c}}</ul>
-{% endfor %}
+{% endfor %}-->
 
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Chat Menu</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="nav navbar-nav menu">
+      <li class="nav-item">
+        <a class="nav-link active" href="#.">Rooms <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <h2><i class="glyphicon glyphicon-user"></i> Hello, {{request.user}} </h2>
+         </div>
+        <div class="col-md-12">
+             <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Chat Menu</li>
+              </ol>
+            </nav>
+         </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="card">
+                      <div class="card-header">
+                         <h3>
+                            <ul>
+                                {% for room in rooms %}
+                                    {% if "medico" in room.name %}
+                                    <li><button><a href="/login/chatmenu/{{ room.name }}" > {{ room.name }} </a> </button></li>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </ul>
+                         </h3>
+                      </div>
+                      <div class="card-body">
+                        <div class="float-left">
+                            <img src=""/>
+                        </div>
+                        <div class="float-right">
+                            <p>The Medical Assistance you need.</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card">
+                      <div class="card-header">
+                        Sed Human Hours
+                      </div>
+                      <div class="card-body">
+                        <div class="float-left">
+                            <img src=""/>
+                        </div>
+                        <div class="float-right">
+                            <p>How a friend of yours didn't throw his birthday party, we know the pain.</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card">
+                      <div class="card-header">
+                        Sports
+                      </div>
+                      <div class="card-body">
+                        <div class="float-left">
+                            <img src=""/>
+                        </div>
+                        <div class="float-right">
+                            <p>Talk about stuff with the people of your similar taste in sports.</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card">
+                      <div class="card-header">
+                        Movies
+                      </div>
+                      <div class="card-body">
+                        <div class="float-left">
+                            <img src=""/>
+                        </div>
+                        <div class="float-right">
+                            <p>The movies which made a deep impact on your life, talk about them.</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card">
+                      <div class="card-header">
+                          Existing Rooms
+                      </div>
+                      <div class="card-body">
+                        <div class="float-left">
+                            <img src=""/>
+                        </div>
+                        <div class="float-right">
+                            <ul>
+                                {% for room in rooms %}
+                                    <li><button><a href="/login/chatmenu/{{ room.name }}" > {{ room.name }} </a> </button></li>
+                                {% endfor %}
+
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card">
+                      <div class="card-header">
+                          Create A New Room
+                      </div>
+                      <div class="card-body">
+                        <div class="float-left">
+                            <img src=""/>
+                        </div>
+                        <div class="float-right">
+                            <form id="post_from" method="POST" action="checkview">
+                                {% csrf_token %}
+
+
+                                <header></header>
+                                <input type="text" name="room_name" placeholder="Enter Room Name" id="room_name" />
+                                <br/>
+                                <br/>
+                                {% for message in messages %}
+                                    <p>{{message}}</p>
+                                {% endfor %}
+                                <input type="submit" value="Enter Room" >
+                                </form>
+
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="col-md-12">
+                <div class="table-responsive">
+            <table class="table"
+                   *ngIf="products && products.length">
+                <thead>
+                    <tr>
+                        <th>
+
+                        </th>
+                        <th>Username</th>
+                        <th>Points</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let customer of customers">
+
+                        <td>
+                            <ul>{% for v,c in val.items %}
+                                <li>{{v}}</li>
+                            {% endfor %}
+                            </ul>
+                        </td>
+                       <td>
+                            <ul>{% for v,c in val.items %}
+                                <li>{{c}}</li>
+                            {% endfor %}
+                            </ul>
+                       </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+            </div>
+
+
+
+
+    </div>
+</div>
+
+
+
+</html>
