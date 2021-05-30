@@ -199,7 +199,7 @@
 
 
                                 <header></header>
-                                <input type="text" name="room_name" placeholder="Enter Room Name" id="room_name" />
+                                <input type="text" name="room_name" placeholder="Enter Room Name..." id="room_name" size="15" />
                                 <br/>
                                 <br/>
                                 {% for message in messages %}
@@ -220,12 +220,10 @@
                    *ngIf="products && products.length">
                 <thead>
                     <tr>
-                        <th>
-
+                        <th>Username
                         </th>
-                        <th>Username</th>
                         <th>Points</th>
-
+                        <th> </th>
                     </tr>
                 </thead>
                 <tbody>
