@@ -12,7 +12,7 @@ As we all know the times has been tough during the pandemic, it has affected our
  4. Reward redeem system to provide with the happiness of helping others as well as making contributions towards helping the society during pandemic.
 
 ## ✨Presentation
-- video
+- [PPT](https://drive.google.com/file/d/1MnyJ1VMvgufMzgBIU8MSgwW1KyWqOoqf/view?usp=sharing)
 
 ## 🎯Features
 * Chatroom for socializing
